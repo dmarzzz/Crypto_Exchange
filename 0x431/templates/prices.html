@@ -1,0 +1,11 @@
+{% extends 'layout.html'%}
+{% block body %}
+	<h1> Prices </h1>
+	<h3> Order ID , Test , Order Amount </h3>
+	<ul class = "list-group">
+		{% for price in prices %}
+
+			<li class ='list-group-item'>{{ price.id, price.title, price.body}}</li>
+		{% endfor %}
+	</ul>
+{%endblock%}
