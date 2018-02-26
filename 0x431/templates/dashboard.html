@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>0x431 Dashboard</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div style = "width: 100%; height: 4em; background-color: orange;">
+		<div style = "color: black; font-size: 3em; display: inline-block;">0x431 Cryptocurrency Exchange</div>
+		<div style = "color: black; font-size: 3em; display: inline-block; float: right;">Log Out&nbsp</div>
+	</div>
+	<div style = "width: 100%; height: 3em; background-color: black;">
+		<input type = "text" style = "width: 30%; margin-top: 0.1em; margin-left: 0.5em; font-size: 2em;" value = "Search" onclick = "function(){this.value = "";}">
+	</div>
+
+	<br>
+	<input type = "button" style = "font-size: 2em;" value = "Gimme data" onclick = "getOrderBook()">
+
+	<script>
+		var getOrderBook = function(){
+			$.get("/dashboard/test", function(response){
+				console.log(response);
+			});
+		}
+	</script>
+</body>
+</html>

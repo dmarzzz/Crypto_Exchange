@@ -1,9 +1,9 @@
-from flask import Flask, render_template, flash, request, redirect, url_for, logging
+from flask import Flask, render_template, flash, request, redirect, url_for, logging, jsonify, json
 from data import Prices
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/Static')
 
 Prices = Prices()
 
@@ -11,6 +11,18 @@ Prices = Prices()
 @app.route('/')
 def index():
 	return render_template('home.html')
+
+@app.route('/dashboard')
+def dashboard():
+	return render_template('dashboard.html')
+
+@app.route('/dashboard/test')
+def test():
+	response = {
+	"field1": "value1",
+	"field2": "value2"
+	}
+	return jsonify(response)#"It worked"
 
 @app.route('/about')
 def about():
@@ -55,4 +67,4 @@ def register():
 
 if __name__ == '__main__':
 	app.secret_key = "1234"
-	app.run(debug=True)
+	app.run(debug=True, threaded=True)
