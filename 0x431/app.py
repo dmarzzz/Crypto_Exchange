@@ -3,7 +3,7 @@ from data import Prices
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 
-app = Flask(__name__, static_url_path='/Static')
+app = Flask(__name__, static_url_path='/static')
 
 Prices = Prices()
 

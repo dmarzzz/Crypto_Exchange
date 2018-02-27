@@ -1,26 +1,42 @@
 <html>
 <head>
 	<title>0x431 Dashboard</title>
+	<style>
+		table {border: 0.1em solid black;}
+		tr {border: 0.1em solid black;}
+		td {border: 0.1em solid black; padding: 0.2em;}
+	</style>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src = "{{url_for('static', filename='dashboard.js')}}"></script>
+
 </head>
 <body>
+	<!-- ORANGE HEADER BAR -->
 	<div style = "width: 100%; height: 4em; background-color: orange;">
 		<div style = "color: black; font-size: 3em; display: inline-block;">0x431 Cryptocurrency Exchange</div>
-		<div style = "color: black; font-size: 3em; display: inline-block; float: right;">Log Out&nbsp</div>
+		<div style = "color: black; font-size: 2em; margin: 0.4em 0.3em 0em 0.3em; display: inline-block; float: right;">Log Out</div>
+		<div style = "display: inline-block; float: right; background-color: black; width: 0.2em; height: 4em;"></div>
+		<div style = "color: black; font-size: 2em; margin: 0.4em 0.3em 0em 0.3em; display: inline-block; float: right;">Forum</div>
 	</div>
-	<div style = "width: 100%; height: 3em; background-color: black;">
-		<input type = "text" style = "width: 30%; margin-top: 0.1em; margin-left: 0.5em; font-size: 2em;" value = "Search" onclick = "function(){this.value = "";}">
+
+
+	<!-- BLACK SUB-HEADER BAR -->
+	<div style = "width: 100%; height: 2.4em; background-color: black;">
+		<input type = "text" style = "width: 50%; float: right; margin-top: 0.1em; margin-left: 0.5em; font-size: 1.5em; text-align: right;" value = "Search">
 	</div>
 
 	<br>
-	<input type = "button" style = "font-size: 2em;" value = "Gimme data" onclick = "getOrderBook()">
 
-	<script>
-		var getOrderBook = function(){
-			$.get("/dashboard/test", function(response){
-				console.log(response);
-			});
-		}
-	</script>
+	<input type = "button" style = "font-size: 2em;" value = "Gimme data" onclick = "getOrderBook()">
+	<input type = "button" style = "font-size: 2em;" value = "Pause data" onclick = "pauseData()">
+	
+	<br><br><br>
+
+	<!-- ORDER BOOK TABLE -->
+	<table id = "bid_table" style = "display: inline-block;"></table>
+
+	<div id = "graph" style="width: 500px; height: 400px; display: inline-block; float: right;"></div>
+
 </body>
 </html>
