@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>0x431 Forum</title>
+	<style>
+		table {border: 0.1em solid black;}
+		tr {border: 0.1em solid black;}
+		td {border: 0.1em solid black; padding: 0.2em;}
+	</style>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src = "{{url_for('static', filename='thread.js')}}"></script>
+
+</head>
+<body>
+	<!-- ORANGE HEADER BAR -->
+	<div style = "width: 100%; height: 8%; background-color: orange; border: 1px solid black; box-sizing: border-box;">
+		<div style = "color: black; font-size: 250%; display: inline-block;">&nbsp;0x431 Cryptocurrency Exchange</div>
+		<div style = "color: black; font-size: 2em; margin: 0.2em; display: inline-block; float: right;"><a style = "text-decoration: none; color: black;" href = "/">Log Out</a></div>
+		<div style = "display: inline-block; float: right; background-color: black; width: 0.2%; height: 100%;"></div>
+		<div style = "font-size: 2em; margin: 0.2em; display: inline-block; float: right;"><a style = "text-decoration: none; color: black;" href = "/dashboard">Dashboard</a></div>
+		<input id = "search_bar" type = "text" style = "width: 30%; height: 90%; float: right; margin: 0.2% 3%; font-size: 1.5em; text-align: right; color: grey;" value = "Search&nbsp;">
+	</div>
+	<br>
+
+
+	<div id = "question_container">
+
+		<!-- Total vote number and upvote/downvote buttons  -->
+		<div style = "display: inline-block; width: 15%; height: 1.6em;">
+			<div style = "display: inline-block; height: 1.6em; width: 40%; font-size: 250%;">166&nbsp;</div>
+			<div style = "display: inline-block; height: 1.6em; width: 40%">
+				<input type = "button" style = "width: 90%; height: 100%; display: block;" value = "Upvote">
+				<input type = "button" style = "width: 90%; height: 100%; display: block;" value = "Downvote">
+			</div>
+		</div>
+
+		<!-- Question summary -->
+		<div style = "width: 85%; height: 1.6em; background-color: tan; border: 0.2em solid brown; box-sizing: border-box; font-size: 2em; display: inline-block; float: right; padding-left: 0.75%;">
+			<b>eAuction suks dik?</b>
+		</div><br>
+
+		<!-- Question description -->
+		<div style = "margin-top: 2em; margin-left: 15%; width: 85%; background-color: tan; border: 1px solid black; box-sizing: border-box; font-size: 1em; padding: 0.5em;">Lorem ipsum dolor sit amet, feugiat delenit adversarium at vim. No sed quod diceret, in graecis appetere salutandi quo. Ei legere consequuntur eam, ei mei inermis similique, cum quis dolor gloriatur cu. Nec id doming molestie, ea nominati assueverit consectetuer per. In vix ceteros sententiae, augue elitr vel ea. Labore invenire rationibus cu eos.</div>
+	</div>
+	
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>0x431 Dashboard</title>
+	<title>0x431 Forum</title>
 	<style>
 		table {border: 0.1em solid black;}
 		tr {border: 0.1em solid black;}
@@ -8,32 +8,20 @@
 	</style>
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src = "{{url_for('static', filename='dashboard.js')}}"></script>
+	<script src = "{{url_for('static', filename='forum.js')}}"></script>
 
 </head>
 <body>
-
+	
 	<!-- ORANGE HEADER BAR -->
 	<div style = "width: 100%; height: 8%; background-color: orange; border: 1px solid black; box-sizing: border-box;">
 		<div style = "color: black; font-size: 250%; display: inline-block;">&nbsp;0x431 Cryptocurrency Exchange</div>
 		<div style = "color: black; font-size: 2em; margin: 0.2em; display: inline-block; float: right;"><a style = "text-decoration: none; color: black;" href = "/">Log Out</a></div>
 		<div style = "display: inline-block; float: right; background-color: black; width: 0.2%; height: 100%;"></div>
-		<div style = "font-size: 2em; margin: 0.2em; display: inline-block; float: right;"><a style = "text-decoration: none; color: black;" href = "/forum">Forum</a></div>
+		<div style = "font-size: 2em; margin: 0.2em; display: inline-block; float: right;"><a style = "text-decoration: none; color: black;" href = "/dashboard">Dashboard</a></div>
 		<input id = "search_bar" type = "text" style = "width: 30%; height: 90%; float: right; margin: 0.2% 3%; font-size: 1.5em; text-align: right; color: grey;" value = "Search&nbsp;">
 	</div>
-
-	<br>
-
-	<input type = "button" style = "font-size: 2em;" value = "Gimme data" onclick = "getOrderBook()">
-	<input type = "button" style = "font-size: 2em;" value = "Pause data" onclick = "pauseData()">
-
-	<br><br><br>
-
-	<!-- ORDER BOOK TABLE -->
-	<table id = "bid_table" style = "display: inline-block;"></table>
-
-	<!-- SAMPLE GRAPH -->
-	<div id = "graph" style="width: 500px; height: 400px; display: inline-block; float: right;"></div>
+	
 
 </body>
 </html>

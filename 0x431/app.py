@@ -10,7 +10,7 @@ Prices = Prices()
 
 @app.route('/')
 def index():
-	return render_template('home.html')
+	return render_template('landing.html')
 
 @app.route('/dashboard')
 def dashboard():
@@ -23,6 +23,14 @@ def test():
 	"field2": "value2"
 	}
 	return jsonify(response)#"It worked"
+
+@app.route('/forum')
+def forum():
+	return render_template('forum.html')
+
+@app.route('/thread')
+def thread():
+	return render_template('thread.html')
 
 @app.route('/about')
 def about():

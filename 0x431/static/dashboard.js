@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 	var currentIndex = 0;
 	var shiftBy = 4;
-	var secondsBetweenUpdates = 2;
+	var secondsBetweenUpdates = 1;
 
 	//This is the function that's called every x seconds to update the table
 	var updateTable = function(){
