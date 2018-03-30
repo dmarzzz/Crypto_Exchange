@@ -10,7 +10,7 @@ Prices = Prices()
 
 @app.route('/')
 def index():
-	return render_template('landing.html')
+	return render_template('login.html')
 
 @app.route('/dashboard')
 def dashboard():
