@@ -10,7 +10,11 @@ Prices = Prices()
 
 @app.route('/')
 def index():
-	return render_template('login.html')
+	return render_template('landing.html')
+
+@app.route('/my_register')
+def my_register():
+	return render_template('my_register.html')
 
 @app.route('/dashboard')
 def dashboard():
@@ -41,7 +45,11 @@ def about():
 def prices():
 	return render_template('prices.html', prices = Prices)
 
-class RegisterForm(Form):
+@app.route('/register', methods = ['POST'])
+def register():
+	return "It worked"
+
+"""class RegisterForm(Form):
 	name = StringField('Name', [validators.Length(min=4, max=50)])
 	username = StringField('Username', [validators.Length(min=4, max=25)])
 	email = StringField('Email', [validators.Length(min=8, max=60)])
@@ -71,7 +79,7 @@ def register():
 		return redirect(url_for('/register'))
 
 	return render_template('register.html', form= form)
-
+"""
 
 if __name__ == '__main__':
 	app.secret_key = "1234"

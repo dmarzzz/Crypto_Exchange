@@ -2,26 +2,26 @@ import psycopg2
 import sys
 
 def getcomments():
-    #Define our connection string
-    conn_string = "host='localhost' dbname='projectoutline' user='postgres' password='Xana42169!!!'"
+    
+    #Define our connection parameters
+    conn_string = "host='localhost' dbname='postgres' user='postgres' password='password'"
+    
+    #Connect to database
     conn = psycopg2.connect(conn_string)
 
-    curr = conn.cursor()
+    #Initialize cursor
+    cur = conn.cursor()
 
-    selectcomments = (
-    """
-    SELECT * FROM comments
-    """
-    )
+    sql = ("SELECT * FROM comments")
 
-    curr.execute(selectcomments)
+    curr.execute(sql)
     print(curr.fetchall())
-    print("\n")
 
+    #Destroy connection
     curr.close()
     conn.commit()
     conn.close()
 
 
-if __name__ == "__main__":
-    getcomments()
+
+getcomments()

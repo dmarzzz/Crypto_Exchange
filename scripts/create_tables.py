@@ -1,19 +1,17 @@
 import psycopg2
 import sys
 
-def main():
-    #Define our connection string
-    conn_string = "host='localhost' dbname='projectoutline' user='postgres' password='Xana42169!!!'"
+def create_and_populate_tables():
 
-    # print the connection string we will use to connect
-    #print "Connecting to database\n	->%s" % (conn_string)
-
-    # get a connection, if a connect cannot be made an exception will be raised here
+    #Define our connection parameters
+    conn_string = "host='localhost' dbname='postgres' user='postgres' password='password'"
+    
+    #Connect to database
     conn = psycopg2.connect(conn_string)
 
-    # conn.cursor will return a cursor object, you can use this cursor to perform queries
+    #Initialize cursor
     cur = conn.cursor()
-    print("Connected!")
+
     creates = (
     """CREATE TABLE questions (
             question_id SERIAL PRIMARY KEY,
@@ -31,21 +29,12 @@ def main():
         'This description is dank',
         'Memes')
     """,
-    """INSERT INTO comments values (01023,
-        19823,
-        'This comment is for the dank question'),
-        (39033,
-            19823,
-            'This comment is another for the dank question'),
-        (09182,
-            19823,
-            'This comment  yet another for the dank question'),
-        (03928,
-            19823,
-            'This comment is the fourth for the dank question'),
-        (55555,
-            19823,
-            'This comment is the final for the dank question')
+    """INSERT INTO comments values 
+        (01023, 19823, 'This comment is for the dank question'),
+        (39033, 19823, 'This comment is another for the dank question'),
+        (09182, 19823, 'This comment  yet another for the dank question'),
+        (03928, 19823, 'This comment is the fourth for the dank question'),
+        (55555, 19823, 'This comment is the final for the dank question')
     """)
 
     selects = (
@@ -59,16 +48,15 @@ def main():
 
     for create in creates:
         cur.execute(create)
+
     for select in selects:
         cur.execute(select)
         print(cur.fetchall())
 
-    #destroy/close connections
 
-
+    #Destroy connection
     cur.close()
     conn.commit()
     conn.close()
 
-if __name__ == "__main__":
-    main()
+create_and_populate_tables()
