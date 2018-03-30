@@ -47,6 +47,7 @@ def prices():
 
 @app.route('/register', methods = ['POST'])
 def register():
+	print(request.get_json())
 	return "It worked"
 
 """class RegisterForm(Form):

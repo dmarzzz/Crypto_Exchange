@@ -53,15 +53,19 @@ var submit = function(){
 	});
 	*/
 
-	/*var registration_data = {
+	var registration_data = {
 		name: document.getElementById("name").value,
 		email: document.getElementById("email").value,
 		username: document.getElementById("username").value,
 		password: document.getElementById("password").value,
 	}
 
-	//Send 
-	$.post("/register", registration_data, function(response){
+	post("/register", registration_data, function(response){
+		console.log(response);
+	});
+
+	/*//Send 
+	$.post("/register", json = registration_data, function(response){
 		console.log(response);
 	});*/
 }
@@ -88,4 +92,16 @@ var email_is_ok = function(email){
 	}
 
 	return true;
+}
+
+var post = function(url, data, callback){
+	$.ajax({
+        type : "POST",
+        url : url,
+        data: JSON.stringify(data),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            callback(response);
+        }
+    });
 }
