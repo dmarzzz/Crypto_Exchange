@@ -1,9 +1,10 @@
 import psycopg2
-import sys
+from flask import jsonify
 
-def getcomments():
-    
-    #Define our connection parameters
+
+
+def get_questions():
+	#Define our connection parameters
     conn_string = "host='localhost' dbname='postgres' user='postgres' password='password'"
     
     #Connect to database
@@ -12,16 +13,14 @@ def getcomments():
     #Initialize cursor
     cur = conn.cursor()
 
-    sql = ("SELECT * FROM comments")
+    sql = ("SELECT * FROM questions")
 
-    curr.execute(sql)
-    print(curr.fetchall())
+    cur.execute(sql)
+    select_result = cur.fetchall()
 
     #Destroy connection
-    curr.close()
+    cur.close()
     conn.commit()
     conn.close()
 
-
-
-getcomments()
+    return jsonify(select_result)

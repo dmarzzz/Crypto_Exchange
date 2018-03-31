@@ -5,26 +5,43 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 	<script src = "{{url_for('static', filename='my_register.js')}}"></script>
+	<style>
+		p {
+			width: 86%;
+			margin: 1% 7% 1% 7%;
+			font-size: 100%;
+			font-weight: bold;
+		}
+		.form_field {
+			width: 86%;
+			height: 5%;
+			margin: 0% 7% 0% 7%;
+			font-size: 100%;
+			border: 1px solid grey;
+			border-radius: 5px;
+			padding-left: 1%;
+		}
+	</style>
 </head>
 <body>
 
 	<p>Name</p>
-	<input type = "text" id = "name" value = "asdf">
+	<input type = "text" class = "form_field" id = "name" value = "asdf">
 
 	<p>Email</p>
-	<input type = "text" id = "email" value = "asdf@asdf.com">
+	<input type = "text" class = "form_field" id = "email" value = "asdf@asdf.com">
 
 	<p>Username</p>
-	<input type = "text" id = "username" value = "asdf">
+	<input type = "text" class = "form_field" id = "username" value = "asdf">
 
 	<p>Password</p>
-	<input type = "password" id = "password" value = "asdf">
+	<input type = "password" class = "form_field" id = "password" value = "asdf">
 
 	<p>Confirm Password</p>
-	<input type = "password" id = "confirm_password" value = "asdf">
+	<input type = "password" class = "form_field" id = "confirm_password" value = "asdf">
 
 	<br>
 
-	<input type = "button" value = "Submit" onclick = "submit()">
+	<input type = "button" style = "width: 6%; height: 4%; border-radius: 5px; margin: 2% 0% 0% 10%; font-size: 100%;" value = "Submit" onclick = "submit()">
 </body>
 </html>

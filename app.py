@@ -3,6 +3,13 @@ from data import Prices
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 
+import sys
+sys.path.insert(0, './scripts')
+import selects
+from inserts import insert_into_users
+
+
+
 app = Flask(__name__, static_url_path='/static')
 
 Prices = Prices()
@@ -12,21 +19,10 @@ Prices = Prices()
 def index():
 	return render_template('landing.html')
 
-@app.route('/my_register')
-def my_register():
-	return render_template('my_register.html')
-
 @app.route('/dashboard')
 def dashboard():
 	return render_template('dashboard.html')
 
-@app.route('/dashboard/test')
-def test():
-	response = {
-	"field1": "value1",
-	"field2": "value2"
-	}
-	return jsonify(response)#"It worked"
 
 @app.route('/forum')
 def forum():
@@ -45,12 +41,17 @@ def about():
 def prices():
 	return render_template('prices.html', prices = Prices)
 
-@app.route('/register', methods = ['POST'])
+@app.route('/get_questions', methods = ['POST'])
+def get_questions():
+	return selects.get_questions()
+
+
+"""@app.route('/register', methods = ['POST'])
 def register():
 	print(request.get_json())
-	return "It worked"
+	return "It worked"""
 
-"""class RegisterForm(Form):
+class RegisterForm(Form):
 	name = StringField('Name', [validators.Length(min=4, max=50)])
 	username = StringField('Username', [validators.Length(min=4, max=25)])
 	email = StringField('Email', [validators.Length(min=8, max=60)])
@@ -74,13 +75,16 @@ def register():
 		###
 		#############################
 		print(name,email,username,password)
-
+		input_form = [name , email , username , str(form.password.data)]
+		print("Test")
+		print(input_form)
 		flash('You are now registered with 0x431 Exchange')
-
-		return redirect(url_for('/register'))
+		insert_into_users(input_form)
+		return render_template('register.html', form= form)
 
 	return render_template('register.html', form= form)
-"""
+
+
 
 if __name__ == '__main__':
 	app.secret_key = "1234"
