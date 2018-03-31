@@ -3,7 +3,7 @@ import sys
 
 def getcomments():
     #Define our connection string
-    conn_string = "host='localhost' dbname='projectoutline' user='postgres' password='Xana42169!!!'"
+    conn_string = "host='localhost' dbname='Ox431_DB' user='postgres' password='Xana42169!!!'"
     conn = psycopg2.connect(conn_string)
 
     curr = conn.cursor()

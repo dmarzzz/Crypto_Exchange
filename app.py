@@ -2,6 +2,7 @@ from flask import Flask, render_template, flash, request, redirect, url_for, log
 from data import Prices
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
+from connection_script import insert_into_login_credentials
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -65,12 +66,15 @@ def register():
 		###
 		#############################
 		print(name,email,username,password)
-
+		input_form = [name , email , username , str(form.password.data)]
+		print("Test")
+		print(input_form)
 		flash('You are now registered with 0x431 Exchange')
-
-		return redirect(url_for('/register'))
+		insert_into_login_credentials(input_form)
+		return render_template('register.html', form= form)
 
 	return render_template('register.html', form= form)
+
 
 
 if __name__ == '__main__':

@@ -1,29 +1,25 @@
 import psycopg2
 import sys
 
-def insert_into_login_credentials(forms):
-    print("Connected!")
-    forms = ['test1','test2','test3','test4']
+def insert_into_db(forms):
     #Define our connection string
     conn_string = "host='localhost' dbname='projectoutline' user='postgres' password='Xana42169!!!'"
 
-    name = forms[0]
-    email = forms[1]
-    username = forms[2]
-    password = forms[3]
     # print the connection string we will use to connect
     #print "Connecting to database\n	->%s" % (conn_string)
 
     # get a connection, if a connect cannot be made an exception will be raised here
     conn = psycopg2.connect(conn_string)
-    cur = conn.cursor()
-    cur.execute("""INSERT INTO login_credentials(username, name, email, login_password) VALUES(%s, %s, %s, %s);""" ,( name, email ,username, password))
+    createusertable = ("""CREATE TABLE login_credentials (
+    username VArCHAR(30) NOT NULL,
+    PRIMARY KEY(username),
+    name VARCHAR(60) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    login_password VARCHAR(60) NOT NULL
+    )""")
     # conn.cursor will return a cursor object, you can use this cursor to perform queries
-
+    cur = conn.cursor()
     print("Connected!")
-
-
-
-    conn.commit()
-    cur.close()
-    conn.close()
+    cur.execute("""SELECT * FROM forum""")
+    rows = cur.fetchall()
+    print(rows)

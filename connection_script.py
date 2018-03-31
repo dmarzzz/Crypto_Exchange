@@ -3,7 +3,6 @@ import sys
 
 def insert_into_login_credentials(forms):
     print("Connected!")
-    forms = ['test1','test2','test3','test4']
     #Define our connection string
     conn_string = "host='localhost' dbname='projectoutline' user='postgres' password='Xana42169!!!'"
 
